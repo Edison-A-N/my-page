@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { renderMarkdown } from '@/lib/markdown';
 import fs from 'fs';
 import path from 'path';
+import MarkdownRenderer from '../components/MarkdownRenderer';
+
 
 const AboutPage = async () => {
     // 读取 Markdown 文件
@@ -10,13 +12,13 @@ const AboutPage = async () => {
     const markdownContent = fs.readFileSync(filePath, 'utf-8');
 
     // 渲染 Markdown 为 HTML，并获取参数信息
-    const { html: htmlContent, data: frontMatter } = await renderMarkdown(markdownContent);
+    const { html, data } = await renderMarkdown(markdownContent);
 
     return (
+
         <div>
-            <Head>{frontMatter.title && <title>{frontMatter.title}</title>}</Head>
-            {/* <pre>{JSON.stringify(frontMatter, null, 2)}</pre> */}
-            <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+            <Head><title>{data.title}</title></Head>
+            <MarkdownRenderer html={html} />
         </div>
     );
 };
