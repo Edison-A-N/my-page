@@ -1,13 +1,19 @@
 import React from 'react';
+import styles from '../styles/Navbar.module.css';
 
 const Navbar: React.FC = () => {
     return (
-        <nav style={{ height: '100%', background: '#333', color: '#fff', padding: '1rem' }}>
-            <h2>导航栏</h2>
-            <ul>
-                <li><a href="#" style={{ color: '#fff' }}>首页</a></li>
-                <li><a href="#" style={{ color: '#fff' }}>关于</a></li>
-                <li><a href="#" style={{ color: '#fff' }}>联系</a></li>
+        <nav className={styles.navbar}>
+            <div className={styles.profile}>
+                <img
+                    src="/avatar/avatar.jpg"
+                    alt="Profile Avatar"
+                    className={styles.avatar}
+                />
+                <h2 className={styles.name}>Edison</h2>
+            </div>
+            <ul className={styles.navList}>
+                <li><a href="/about" className={styles.navItem}>About</a></li>
             </ul>
         </nav>
     );
