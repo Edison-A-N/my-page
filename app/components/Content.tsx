@@ -1,13 +1,12 @@
-// app/components/Content.tsx
-import React from 'react';
+import { getAllPosts } from '@/lib/post';
+import PostList from '../components/PostList';
 
-const Content: React.FC = () => {
+export default async function Home() {
+    const posts = await getAllPosts();
+
     return (
-        <div style={{ padding: '1rem' }}>
-            <h1>欢迎来到主页</h1>
-            <p>这是内容区域，您可以在这里添加更多信息。</p>
-        </div>
+        <main>
+            <PostList posts={posts} />
+        </main>
     );
-};
-
-export default Content;
+}

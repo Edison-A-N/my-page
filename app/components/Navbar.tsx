@@ -13,6 +13,7 @@ const Navbar: React.FC = () => {
                 <h2 className={styles.name}>Edison</h2>
             </div>
             <ul className={styles.navList}>
+                <li><a href="/" className={styles.navItem}>Home</a></li>
                 <li><a href="/about" className={styles.navItem}>About</a></li>
             </ul>
         </nav>
