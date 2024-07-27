@@ -51,12 +51,12 @@ const MarkdownContainer = styled.div`
         border-left: 4px solid #ccc;
         padding-left: 10px;
         margin: 1em 0;
-        color: #555;
+        color: #666;
         font-style: italic;
     }
 
     code {
-        background-color: #f0f0f0;
+        background-color: #666;
         padding: 2px 4px;
         border-radius: 4px;
     }
