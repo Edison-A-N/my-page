@@ -1,10 +1,12 @@
 import React from 'react';
-import Head from 'next/head';
 import { renderMarkdown } from '@/lib/markdown';
 import fs from 'fs';
 import path from 'path';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 
+export const metadata = {
+    title: 'About Me',
+};
 
 const AboutPage = async () => {
     // 读取 Markdown 文件
@@ -17,7 +19,6 @@ const AboutPage = async () => {
     return (
 
         <div>
-            <Head><title>{data.title}</title></Head>
             <MarkdownRenderer html={html} />
         </div>
     );
