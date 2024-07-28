@@ -47,7 +47,9 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
                         <p className={styles.postDate}>
                             {typeof post.data.date === 'string' ? post.data.date : new Date(post.data.date).toLocaleDateString() || ''}
                         </p>
-                        <p className={styles.postTags}>{post.data.tags || ''}</p>
+                        <p className={styles.postTags}>
+                            {post.data.tags ? `#${post.data.tags}` : ''}
+                        </p>
                     </li>)
                 })}
             </ul>

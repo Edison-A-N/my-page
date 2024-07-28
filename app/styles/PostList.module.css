@@ -4,7 +4,7 @@
     /* max-width: 800px; */
     margin: 0 auto;
     /* padding: 20px; */
-    background-color: #f9f9f9;
+    /* background-color: #767171; */
     /* border-radius: 8px; */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -12,9 +12,9 @@
 .postItem {
     margin-bottom: 20px;
     padding: 15px;
-    border: 1px solid #e0e0e0;
+    /* border: 1px solid #e0e0e0; */
     border-radius: 5px;
-    background-color: #ffffff;
+    background-color: #181818;
     transition: transform 0.2s;
 }
 
@@ -25,7 +25,7 @@
 
 .postTitle {
     font-size: 1.5rem;
-    color: #333;
+    color: #f2f2f2;
 }
 
 .postDate {
@@ -35,6 +35,6 @@
 
 .postTags {
     font-size: 0.8rem;
-    color: #0070f3;
+    color: #4f575f;
     /* 使用 Next.js 的蓝色 */
 }
