@@ -1,11 +1,20 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
+// import { } from './components/BackgroundImage';
 import './globals.css';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
-import { CssBaseline } from '@mui/material';
+import { Box, CssBaseline, styled } from '@mui/material';
+
+export const ContentWrapper = styled(Box)`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100vh;
+`;
+
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -13,17 +22,20 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <body style={{ background: '#121212' }}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <div style={{ display: 'flex', height: '100vh' }}>
-            <div style={{ width: '33%' }}>
+          {/* <BackgroundImage /> */}
+          <ContentWrapper>
+            <Box sx={{ width: '33%', position: 'fixed' }}>
               <Navbar />
-            </div>
-            <div style={{ width: '67%' }}>
-              {children}
-            </div>
-          </div>
+            </Box>
+            <Box sx={{ width: '67%', marginLeft: '33%' }}>
+              <Suspense fallback={<div>Loading...</div>}>
+                {children}
+              </Suspense>
+            </Box>
+          </ContentWrapper>
         </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 };
 

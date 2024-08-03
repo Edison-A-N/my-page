@@ -13,8 +13,11 @@ const Navbar = () => {
                         width={100}
                         height={100}
                         className={styles.avatar}
+                        priority
                     />
-                    <h2 className={styles.name}>Edison</h2>
+                    <Link href="/" >
+                        <h2 className={styles.name}>Edison</h2>
+                    </Link>
                 </div>
                 <ul className={styles.navList}>
                     <li><Link href="/" className={styles.navItem}>Home</Link></li>
