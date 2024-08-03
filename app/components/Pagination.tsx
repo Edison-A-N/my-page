@@ -1,10 +1,34 @@
+'use client'
+
 import React from 'react';
+import { Button, Box, Typography } from '@mui/material';
+import { styled } from '@mui/system';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 interface PaginationProps {
     currentPage: number;
     totalPages: number;
     onPageChange: (page: number) => void;
 }
+
+const PaginationContainer = styled(Box)(({ theme }) => ({
+    position: 'fixed',
+    right: '20px',
+    bottom: '20px',
+    // backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(2),
+    borderRadius: theme.shape.borderRadius,
+    // boxShadow: theme.shadows[4],
+    display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing(2),
+}));
+
+const PaginationButton = styled(Button)(({ theme }) => ({
+    minWidth: 'unset',
+    padding: theme.spacing(1),
+}));
 
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
     const handlePrev = () => {
@@ -20,39 +44,29 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
     };
 
     return (
-        <div style={{
-            position: 'fixed', // Fixed position
-            right: '20px', // 20px from the right
-            bottom: '20px', // 20px from the bottom
-            backgroundColor: '#333', // Dark gray background
-            padding: '10px', // Padding around the buttons
-            borderRadius: '5px', // Optional: rounded corners for the background
-        }}>
-            <button
+        <PaginationContainer>
+            <PaginationButton
                 onClick={handlePrev}
                 disabled={currentPage === 1}
-                style={{
-                    border: '1px solid #ccc',
-                    boxShadow: '2px 2px 2px #aaa',
-                    backgroundColor: '#f0f0f0',
-                    marginRight: '10px', // Add space between buttons
-                }}
+                variant="contained"
+                color="primary"
+                size="small"
             >
-                Previous
-            </button>
-            <span style={{ color: '#fff' }}>{` Page ${currentPage} of ${totalPages} `}</span>
-            <button
+                <ArrowBackIosNewIcon fontSize="small" />
+            </PaginationButton>
+            <Typography variant="body2">
+                Page {currentPage} of {totalPages}
+            </Typography>
+            <PaginationButton
                 onClick={handleNext}
                 disabled={currentPage === totalPages}
-                style={{
-                    border: '1px solid #ccc',
-                    boxShadow: '2px 2px 2px #aaa',
-                    backgroundColor: '#f0f0f0',
-                }}
+                variant="contained"
+                color="primary"
+                size="small"
             >
-                Next
-            </button>
-        </div>
+                <ArrowForwardIosIcon fontSize="small" />
+            </PaginationButton>
+        </PaginationContainer>
     );
 };
 

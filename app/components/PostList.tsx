@@ -19,7 +19,7 @@ interface PostListProps {
     posts: Post[];
 }
 
-const POSTS_PER_PAGE = 5;
+const POSTS_PER_PAGE = 10;
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
     const [currentPage, setCurrentPage] = useState(1);
